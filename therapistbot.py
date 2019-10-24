@@ -1,32 +1,40 @@
 #Therapistbot
-#Therapistbot
 
-#Default data
 inpatient = 0
 blankinput = 0
 
+#Collecting name
+print('Carol: Hello. My name is Carol and I am your new therapist, what is your name?')
+print()
+name = input('Your name: ')
+print()
+
+#Phrases
+therapistphrase = ('I see...', ('How did that make you feel, ' + str(name) + '?'), 'Do you want to have it this way?', 'What makes you feel like that?')
+therapistphrasemax = len(therapistphrase) - 1
+
+blankinputphrase = [('It will not get better if you do not talk to me, ' + str(name) + '.'), ('What is on your mind?'), 'You need to talk about this, you know.']
+blankinputphrasemax = len(blankinputphrase) -1
+
+#React words
 suicidalsigns = list()
 suicidalsigns = ['suicidal', 'die', 'death', 'suicide', 'kill']
 
+questiontocarol = list()
+qustiontocarol = ['you', '?']
+
 #Greeting
-print('Hello. My name is Carol and I am your new therapist, what is your name?')
-print()
-name = input('You: ')
-print()
-
-#Therapistphrases
-therapistphrase = ('I see...', ('How did that make you feel, ' + str(name) + '?'), 'Do you want to have it this way?', 'What makes you feel like that?')
-maxval = len(therapistphrase) - 1
-
 print('Carol: I see, ' + str(name) + '. Nice to meet you.')
 print('       So how are you today, ' + str(name) + '?')
 print()
 
 #Major loop
 while True:
-
+    #Random phrases
     from random import randint
-    randomtherapistphrase = therapistphrase[randint(0, maxval)]
+    randomtherapistphrase = therapistphrase[randint(0, therapistphrasemax)]
+    randomblankinputphrase = blankinputphrase[randint(0, blankinputphrasemax)]
+
     if inpatient > 0:
         print('*You are currently locked in a psychiatric unit*')
 
@@ -34,20 +42,18 @@ while True:
     print()
 
     if message == 'no':
-            print('Carol: Well will you do anything about it?')
-            print()
-            willu = input('You: ')
-            print()
+        print('Carol: Well will you do anything about it?')
+        print()
+        willu = input('You: ')
+        print()
 
     if message == '':
-        print('It will not get better if you do not talk to me, ' + str(name) + '.')
-        print()
-        continue
+            print('Carol: ' + str(randomblankinputphrase))
 
     for a in suicidalsigns:
         if a in message:
             if inpatient == 0:
-                print('Carol: That really worries me, ' + str(name) + ', we will now put you inpatient')
+                print('Carol: You saying that really worries me, ' + str(name) + ', we will now put you inpatient')
                 print()
                 inpatient += 1
                 break
