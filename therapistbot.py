@@ -29,7 +29,7 @@ while True:
     if inpatient > 0:
         print('*You are currently locked in a psychiatric unit*')
 
-    message = input('You: ')
+    message = str(input('You: '))
     print()
 
     if message == 'no':
@@ -42,11 +42,11 @@ while True:
             print()
             continue
 
-    if message == suicidal: #I want suicidal (or some other variable) to mean that your input contains any of the words on the 'suicidalsigns list' but idk how to do that :)
-        print('That really worries me, ' + str(name) + ', we will now put you inpatient')
-        inpatient += 1
-        print()
-
+    for a in suicidalsigns:
+        if a in message:
+            print('That really worries me, ' + str(name) + ', we will now put you inpatient')
+            inpatient += 1
+            print()
 
     else:
         print('Carol: ' + str(randomtherapistphrase))
