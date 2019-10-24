@@ -38,10 +38,11 @@ while True:
             print()
             willu = input('You: ')
             print()
-            
 
     if message == '':
-        print('It will not get better if you do not talk to me, ' + str(name))
+        print('It will not get better if you do not talk to me, ' + str(name) + '.')
+        print()
+        continue
 
     for a in suicidalsigns:
         if a in message:
