@@ -1,6 +1,4 @@
 #Therapistbot
-#!/Python26/python
-print('Content-type: text/html\r\n\r')
 
 inpatient = 0
 blankinput = 0
@@ -27,7 +25,7 @@ questiontocarol = list()
 qustiontocarol = ['you', '?']
 
 killscarol = list()
-killscarol = ['kills carol', 'kills Carol', 'Killsl carol', 'Kills Carol']
+killscarol = ['kills carol', 'kills Carol', 'Kills carol', 'Kills Carol']
 
 #Greeting
 print('Carol: I see, ' + str(name) + '. Nice to meet you.')
